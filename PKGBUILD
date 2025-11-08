@@ -130,7 +130,12 @@ _nodejs_webpack_docs_ref_optdepends=(
   "${pkgbase}:"
     "Package this documentation refers to."
 )
-optdepends=()
+_nodejs_webpack_cli_optdepends=(
+  "Webpack's Command Line Interface."
+)
+optdepends=(
+  "${_nodejs_webpack_cli_optdepends[*]}"
+)
 if [[ "${_docs}" == "true" ]]; then
   optdepends+=(
     "${_nodejs_webpack_docs_optdepends[*]}"
