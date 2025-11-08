@@ -124,15 +124,18 @@ provides=(
 )
 _nodejs_webpack_docs_optdepends=(
   "${pkgbase}-docs:"
-    "Module usage examples."
+    "Webpack documentation."
 )
-_nodejs_happy_opfs_docs_ref_optdepends=(
+_nodejs_webpack_docs_ref_optdepends=(
   "${pkgbase}:"
     "Package this documentation refers to."
 )
-optdepends=(
-  "${_nodejs_webpack_docs_optdepends[*]}"
-)
+optdepends=()
+if [[ "${_docs}" == "true" ]]; then
+  optdepends+=(
+    "${_nodejs_webpack_docs_optdepends[*]}"
+  )
+fi
 makedepends=(
   "npm"
 )
