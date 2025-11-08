@@ -153,8 +153,8 @@ _sum="SKIP"
 _sig_sum="SKIP"
 _bundle_sum="SKIP"
 _bundle_sig_sum="SKIP"
-_npm_sum="SKIP"
-_npm_sig_sum="SKIP"
+_npm_sum="344ad825f1ac087c5f730bfc558c1a7c066e156a8b9a619b8d4b4d99597913a8"
+_npm_sig_sum="f460b0fdbd15dd12fc1903fe08ef73e9b1688ba353febfd75975e3f3d818b4da"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 # Truocolo
