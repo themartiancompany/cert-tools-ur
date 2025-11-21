@@ -283,7 +283,7 @@ package_nodejs-forge() {
   npm \
     install \
     "${_npm_options[@]}" \
-    "${srcdir}/${_pkg}-${pkgver}.tgz"
+    "${srcdir}/node-${_pkg}-${pkgver}.tgz"
   rm \
     -fr \
       "${pkgdir}/usr/etc"
@@ -297,6 +297,6 @@ package_nodejs-forge() {
     "${pkgdir}"
   install \
     -vDm644 \
-    "${pkgdir}/usr/lib/node_modules/${_pkg}/LICENSE" \
-    "${pkgdir}/usr/share/licenses/$pkgname/LICENSE"
+    "${pkgdir}/usr/lib/node_modules/node-${_pkg}/LICENSE" \
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
