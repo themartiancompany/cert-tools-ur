@@ -87,7 +87,7 @@ if [[ ! -v "_archive_format" ]]; then
     fi
   fi
 fi
-_pkg=webpack
+_pkg=forge
 pkgbase="${_node}-${_pkg}"
 pkgname=(
   "${pkgbase}"
@@ -103,8 +103,9 @@ _pkgdesc=(
   "JSON, CoffeeScript, LESS)."
 )
 pkgdesc="${_pkgdesc[*]}"
-pkgver=5.102.1
-_commit="5df7c3eae4afcbcb2deb4865032d1ae8717b882c"
+pkgver=1.3.1
+_commit=a0a4a4264bedb3296974b9675349c9c190144aeb
+_bundle_commit="1574803ae5880678ac87231086ad1bddd085e60b"
 pkgrel=1
 arch=(
   'any'
@@ -114,7 +115,7 @@ _ns="themartiancompany"
 _url="${_http}/${_ns}/${_pkg}"
 url="https://${_pkg}.js.org/"
 license=(
-  'GPL3'
+  'BSD-3-Clause'
 )
 depends=(
   "${_node}"
@@ -122,27 +123,10 @@ depends=(
 provides=(
   "${_pkg}=${pkgver}"
 )
-_nodejs_webpack_docs_optdepends=(
-  "${pkgbase}-docs:"
-    "Webpack documentation."
-)
-_nodejs_webpack_docs_ref_optdepends=(
-  "${pkgbase}:"
-    "Package this documentation refers to."
-)
-_nodejs_webpack_cli_optdepends=(
-  "Webpack's Command Line Interface."
-)
-_neidel_release_optdepends=(
-  "Jonathan Neidel's release tool."
-)
 optdepends=(
-  "${_nodejs_webpack_cli_optdepends[*]}"
-  "${_neidel_release_optdepends[*]}"
 )
 if [[ "${_docs}" == "true" ]]; then
   optdepends+=(
-    "${_nodejs_webpack_docs_optdepends[*]}"
   )
 fi
 makedepends=(
@@ -165,17 +149,21 @@ elif [[ "${_npm}" == "false" ]]; then
   _tag_name="commit"
 fi
 _tarname="${_pkg}-${_tag}"
-_tarfile="${_tarname}.${_archive_format}"
+_tarfile="node-${_tarname}.${_archive_format}"
 _sum="SKIP"
 _sig_sum="SKIP"
-_bundle_sum="SKIP"
-_bundle_sig_sum="SKIP"
-_npm_sum="344ad825f1ac087c5f730bfc558c1a7c066e156a8b9a619b8d4b4d99597913a8"
-_npm_sig_sum="c76f876f32d2a7a282135843f5e738a42dce0f2cddb77867a1a9525f654b6149"
+_bundle_sum="a1eec9bb93925a36cc44d93dcae76b644b2370ed4cacfe400d885c24e2bad4c7"
+_bundle_sig_sum="354617e0ecf6211e9c59925ab8e83d828818a12f894a480c2488f80f3c1bc5fe"
+_npm_sum="77de03720cd00fafdbcda47e3e995a1f548f2e9028d11a98b0d9bef37ec2ad85"
+_npm_sig_sum="30d7489b2e655d2767c18a531ff55a02cdbbdd0b36b8732c034304cf9784d12f"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 # Truocolo
 _evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
+# Kid fren
+_evmfs_ns="0x9900e43F7AffF2225C5FFc0Ab133D89B57F3c156"
+# Kid
+_evmfs_ns="0x926acb6aA4790ff678848A9F1C59E578B148C786"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_dir="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}"
@@ -219,7 +207,7 @@ if [[ "${_evmfs}" == "true" ]]; then
   )
 elif [[ "${_evmfs}" == "false" ]]; then
   if [[ "${_npm}" == "true" ]]; then
-    _uri="${_npm_http}/${_pkg}/-/${_tarfile}"
+    _uri="${_npm_http}/node-${_pkg}/-/${_tarfile}"
   elif [[ "${_npm}" == "false" ]]; then
     _uri="${url}"
   fi
@@ -271,7 +259,7 @@ prepare() {
   fi
 }
 
-package_nodejs-webpack() {
+package_nodejs-forge() {
   local \
     _npm_options=() \
     _find_opts=()
