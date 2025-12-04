@@ -98,9 +98,9 @@ if [[ "${_docs}" == "true" ]]; then
   )
 fi
 _pkgdesc=(
-  "JavaScript bundler (CommonJs,"
-  "AMD, ES6 modules, CSS, Images,"
-  "JSON, CoffeeScript, LESS)."
+  "Native Javascript TLS"
+  "(and various other cryptograhic tools)"
+  "implementation."
 )
 pkgdesc="${_pkgdesc[*]}"
 pkgver=1.3.1
