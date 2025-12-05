@@ -87,8 +87,8 @@ if [[ ! -v "_archive_format" ]]; then
     fi
   fi
 fi
-_pkg=forge
-pkgbase="${_node}-${_pkg}"
+_pkg=cert-tools
+pkgbase="${_pkg}"
 pkgname=(
   "${pkgbase}"
 )
@@ -103,7 +103,7 @@ _pkgdesc=(
   "implementation."
 )
 pkgdesc="${_pkgdesc[*]}"
-pkgver=1.3.1
+pkgver=0.0.1
 _commit=a0a4a4264bedb3296974b9675349c9c190144aeb
 _bundle_commit="1574803ae5880678ac87231086ad1bddd085e60b"
 pkgrel=1
@@ -112,8 +112,7 @@ arch=(
 )
 _http="https://${_git_http}.com"
 _ns="themartiancompany"
-_url="${_http}/${_ns}/${_pkg}"
-url="https://${_pkg}.js.org/"
+url="${_http}/${_ns}/${_pkg}"
 license=(
   'BSD-3-Clause'
 )
@@ -121,9 +120,21 @@ depends=(
   "${_node}"
 )
 provides=(
-  "${_pkg}=${pkgver}"
+  "${_node}-${_pkg}=${pkgver}"
+)
+_cert_tools_docs_optdepends=(
+  "${_pkg}-docs:"
+    "Certificates Tools"
+    "library documentation"
+    "and manuals."
+)
+_cert_tools_docs_ref_optdepends+=(
+ "${_pkg}:"
+   "the package this documentation"
+   "package pertains to."
 )
 optdepends=(
+  "${_cert_tools_docs_optdepends[*]}"
 )
 if [[ "${_docs}" == "true" ]]; then
   optdepends+=(
@@ -149,7 +160,7 @@ elif [[ "${_npm}" == "false" ]]; then
   _tag_name="commit"
 fi
 _tarname="${_pkg}-${_tag}"
-_tarfile="node-${_tarname}.${_archive_format}"
+_tarfile="${_tarname}.${_archive_format}"
 _sum="SKIP"
 _sig_sum="SKIP"
 _bundle_sum="a1eec9bb93925a36cc44d93dcae76b644b2370ed4cacfe400d885c24e2bad4c7"
@@ -207,7 +218,7 @@ if [[ "${_evmfs}" == "true" ]]; then
   )
 elif [[ "${_evmfs}" == "false" ]]; then
   if [[ "${_npm}" == "true" ]]; then
-    _uri="${_npm_http}/node-${_pkg}/-/${_tarfile}"
+    _uri="${_npm_http}/${_pkg}/-/${_tarfile}"
   elif [[ "${_npm}" == "false" ]]; then
     _uri="${url}"
   fi
@@ -259,7 +270,7 @@ prepare() {
   fi
 }
 
-package_nodejs-forge() {
+package_cert-tools() {
   local \
     _npm_options=() \
     _find_opts=()
@@ -283,7 +294,7 @@ package_nodejs-forge() {
   npm \
     install \
     "${_npm_options[@]}" \
-    "${srcdir}/node-${_pkg}-${pkgver}.tgz"
+    "${srcdir}/${_pkg}-${pkgver}.tgz"
   rm \
     -fr \
       "${pkgdir}/usr/etc"
@@ -297,6 +308,30 @@ package_nodejs-forge() {
     "${pkgdir}"
   install \
     -vDm644 \
-    "${pkgdir}/usr/lib/node_modules/node-${_pkg}/LICENSE" \
+    "${pkgdir}/usr/lib/node_modules/${_pkg}/LICENSE" \
     "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+
+package_cert-tools-docs() {
+  local \
+    _make_opts=()
+  depends=()
+  optdepends=(
+    "${_cert_tools_docs_ref_optdepends[*]}"
+  )
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX='/usr'
+  )
+  cd \
+    "${_tarname}"
+  make \
+    "${_make_opts[@]}" \
+    install-doc \
+    install-man
+  install \
+    -vDm644 \
+    "COPYING" \
+    -t \
+    "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
