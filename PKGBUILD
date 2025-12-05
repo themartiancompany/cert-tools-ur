@@ -103,9 +103,9 @@ _pkgdesc=(
   "implementation."
 )
 pkgdesc="${_pkgdesc[*]}"
-pkgver=0.0.1
-_commit=a0a4a4264bedb3296974b9675349c9c190144aeb
-_bundle_commit="1574803ae5880678ac87231086ad1bddd085e60b"
+pkgver=0.0.3
+_commit="60d1ebadad9905c2ccc5fe932e306298dd0f70bf"
+_bundle_commit="${_commit}"
 pkgrel=1
 arch=(
   'any'
@@ -161,20 +161,20 @@ elif [[ "${_npm}" == "false" ]]; then
 fi
 _tarname="${_pkg}-${_tag}"
 _tarfile="${_tarname}.${_archive_format}"
-_sum="SKIP"
-_sig_sum="SKIP"
-_bundle_sum="a1eec9bb93925a36cc44d93dcae76b644b2370ed4cacfe400d885c24e2bad4c7"
-_bundle_sig_sum="354617e0ecf6211e9c59925ab8e83d828818a12f894a480c2488f80f3c1bc5fe"
-_npm_sum="77de03720cd00fafdbcda47e3e995a1f548f2e9028d11a98b0d9bef37ec2ad85"
-_npm_sig_sum="30d7489b2e655d2767c18a531ff55a02cdbbdd0b36b8732c034304cf9784d12f"
+_sum="0a516ddabdee3fb30dc15070cc3827e0d5ee147e668517fa064db688d82eeb95"
+_sig_sum="e05b20924db7d79fa0dd9ed348bfaca7ac4e622aa8754ce4d3f4a12794a7d3d2"
+_bundle_sum="SKIP"
+_bundle_sig_sum="SKIP"
+_npm_sum="ceed836a98bc2c2819403b5175d41ff8907ae077ffde4a1ca7778147f613256e"
+_npm_sig_sum="77298eb47b98039a5f55fb10453a49d77fffa70b4ffa715bfad9910209eeb2af"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-# Truocolo
-_evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
 # Kid fren
 _evmfs_ns="0x9900e43F7AffF2225C5FFc0Ab133D89B57F3c156"
 # Kid
 _evmfs_ns="0x926acb6aA4790ff678848A9F1C59E578B148C786"
+# Truocolo
+_evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_dir="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}"
