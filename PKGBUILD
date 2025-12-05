@@ -309,11 +309,13 @@ package_cert-tools() {
 package_cert-tools-docs() {
   local \
     _make_opts=()
+    _copying
   depends=()
   optdepends=(
     "${_cert_tools_docs_ref_optdepends[*]}"
   )
   if [[ "${_npm}" == "false" ]]; then
+    _copying="package/COPYING"
     tar \
       "${_tarfile}"
     install \
@@ -324,6 +326,7 @@ package_cert-tools-docs() {
       "package/man/"* \
       "${pkgdir}/usr/share/man/man1"
   elif [[ "${_npm}" == "false" ]]; then
+    _copying="COPYING"
     _make_opts+=(
       DESTDIR="${pkgdir}"
       PREFIX='/usr'
@@ -337,7 +340,7 @@ package_cert-tools-docs() {
   fi
   install \
     -vDm644 \
-    "COPYING" \
+    "${_copying}" \
     -t \
     "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
