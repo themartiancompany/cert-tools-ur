@@ -308,7 +308,7 @@ package_cert-tools() {
 
 package_cert-tools-docs() {
   local \
-    _make_opts=()
+    _make_opts=() \
     _copying
   depends=()
   optdepends=(
