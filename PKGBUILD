@@ -314,7 +314,7 @@ package_cert-tools-docs() {
   optdepends=(
     "${_cert_tools_docs_ref_optdepends[*]}"
   )
-  if [[ "${_npm}" == "false" ]]; then
+  if [[ "${_npm}" == "true" ]]; then
     _copying="package/COPYING"
     tar \
       "${_tarfile}"
