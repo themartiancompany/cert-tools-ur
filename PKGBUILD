@@ -317,16 +317,28 @@ package_cert-tools-docs() {
   optdepends=(
     "${_cert_tools_docs_ref_optdepends[*]}"
   )
-  _make_opts=(
-    DESTDIR="${pkgdir}"
-    PREFIX='/usr'
-  )
-  cd \
-    "${_tarname}"
-  make \
-    "${_make_opts[@]}" \
-    install-doc \
-    install-man
+  if [[ "${_npm}" == "false" ]]; then
+    tar \
+      "${_tarfile}"
+    install \
+      -vdm755 \
+      "${pkgdir}/usr/share/man/man1"
+    install \
+      -vDm644 \
+      "package/man/"* \
+      "${pkgdir}/usr/share/man/man1"
+  elif [[ "${_npm}" == "false" ]]; then
+    _make_opts+=(
+      DESTDIR="${pkgdir}"
+      PREFIX='/usr'
+    )
+    cd \
+      "${_tarname}"
+    make \
+      "${_make_opts[@]}" \
+      install-doc \
+      install-man
+  fi
   install \
     -vDm644 \
     "COPYING" \
