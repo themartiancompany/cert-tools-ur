@@ -317,6 +317,7 @@ package_cert-tools-docs() {
   if [[ "${_npm}" == "true" ]]; then
     _copying="package/COPYING"
     tar \
+      xf \
       "${_tarfile}"
     install \
       -vdm755 \
