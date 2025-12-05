@@ -27,8 +27,6 @@
 #   Pellegrino Prevete (dvorak)
 #     <pellegrinoprevete@gmail.com>
 #     <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
-#   Jonathan Neidel
-#     <aur@jneidel.com>
 
 _os="$( \
   uname \
@@ -64,9 +62,9 @@ if [[ ! -v "_git" ]]; then
 fi
 if [[ ! -v "_docs" ]]; then
   if [[ "${_npm}" == "false" ]]; then
-    _docs="false"
+    _docs="true"
   elif [[ "${_npm}" == "true" ]]; then
-    _docs="false"
+    _docs="true"
   fi
 fi
 if [[ ! -v "_archive_format" ]]; then
@@ -103,7 +101,7 @@ _pkgdesc=(
   "implementation."
 )
 pkgdesc="${_pkgdesc[*]}"
-pkgver=0.0.3
+pkgver=0.0.4
 _commit="60d1ebadad9905c2ccc5fe932e306298dd0f70bf"
 _bundle_commit="${_commit}"
 pkgrel=1
@@ -165,8 +163,8 @@ _sum="0a516ddabdee3fb30dc15070cc3827e0d5ee147e668517fa064db688d82eeb95"
 _sig_sum="e05b20924db7d79fa0dd9ed348bfaca7ac4e622aa8754ce4d3f4a12794a7d3d2"
 _bundle_sum="SKIP"
 _bundle_sig_sum="SKIP"
-_npm_sum="ceed836a98bc2c2819403b5175d41ff8907ae077ffde4a1ca7778147f613256e"
-_npm_sig_sum="77298eb47b98039a5f55fb10453a49d77fffa70b4ffa715bfad9910209eeb2af"
+_npm_sum="95ef6408c1e96410991c33676d478208241a3332ad4728ffda937d7cf0c153de"
+_npm_sig_sum="e09be925e6c452d6440564a59cd1c6398472f27f64ba391a3f5ce116efed5f0f"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 # Kid fren
