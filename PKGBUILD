@@ -308,7 +308,7 @@ package_cert-tools() {
     "${pkgdir}"
   install \
     -vDm644 \
-    "${pkgdir}/usr/lib/node_modules/${_pkg}/LICENSE" \
+    "${pkgdir}/usr/lib/node_modules/${_pkg}/COPYING" \
     "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
