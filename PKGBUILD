@@ -339,11 +339,7 @@ package_cert-tools-docs() {
       install-man
   fi
   install \
-    -vdm755 \
-    "${pkgdir}/usr/share/licenses/${pkgname}/"
-  install \
     -vDm644 \
     "${_copying}" \
-    -t \
-    "${pkgdir}/usr/share/licenses/${pkgname}/"
+    "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
