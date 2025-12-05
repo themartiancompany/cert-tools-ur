@@ -61,11 +61,7 @@ if [[ ! -v "_git" ]]; then
   fi
 fi
 if [[ ! -v "_docs" ]]; then
-  if [[ "${_npm}" == "false" ]]; then
-    _docs="true"
-  elif [[ "${_npm}" == "true" ]]; then
-    _docs="true"
-  fi
+  _docs="true"
 fi
 if [[ ! -v "_archive_format" ]]; then
   if [[ "${_npm}" == "true" ]]; then
