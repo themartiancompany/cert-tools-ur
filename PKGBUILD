@@ -97,8 +97,8 @@ _pkgdesc=(
   "implementation."
 )
 pkgdesc="${_pkgdesc[*]}"
-pkgver=0.0.4
-_commit="60d1ebadad9905c2ccc5fe932e306298dd0f70bf"
+pkgver=0.0.8
+_commit="d6e838e417a708dbd82baf62e35728a86d4598ac"
 _bundle_commit="${_commit}"
 pkgrel=1
 arch=(
@@ -155,12 +155,12 @@ elif [[ "${_npm}" == "false" ]]; then
 fi
 _tarname="${_pkg}-${_tag}"
 _tarfile="${_tarname}.${_archive_format}"
-_sum="0a516ddabdee3fb30dc15070cc3827e0d5ee147e668517fa064db688d82eeb95"
-_sig_sum="e05b20924db7d79fa0dd9ed348bfaca7ac4e622aa8754ce4d3f4a12794a7d3d2"
-_bundle_sum="SKIP"
-_bundle_sig_sum="SKIP"
-_npm_sum="95ef6408c1e96410991c33676d478208241a3332ad4728ffda937d7cf0c153de"
-_npm_sig_sum="e09be925e6c452d6440564a59cd1c6398472f27f64ba391a3f5ce116efed5f0f"
+_sum="500e716904c56bd9d3e0930dec23eabfb59b014839ada24725d546c643da8ce5"
+_sig_sum="2e5374a4c8abc6c3b469253f5d5a792edb953105baa7f68bceaee3eb7353fa87"
+_bundle_sum="4f8cd0089a4be849eee9f1e12e94882d6ddc1991478d02adf8ddbaee25d2febd"
+_bundle_sig_sum="01da0d4ed9727e67d4be37571e847a09b5473bf7185e4e81e041b901c58f0b75"
+_npm_sum="b3d6643cd490f5d1f42ac4594425a8578536efe045bf8ae08291e47e1fd97c6b"
+_npm_sig_sum="75b85412699f1832e4139533a9dce2e1ac3614b401b3b9dccb35c7bbcbc4454b"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 # Kid fren
@@ -344,3 +344,4 @@ package_cert-tools-docs() {
     "${_copying}" \
     "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
 }
+
