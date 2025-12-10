@@ -108,7 +108,7 @@ _http="https://${_git_http}.com"
 _ns="themartiancompany"
 url="${_http}/${_ns}/${_pkg}"
 license=(
-  'BSD-3-Clause'
+  "AGPL3"
 )
 depends=(
   "${_node}"
