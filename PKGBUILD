@@ -97,9 +97,10 @@ _pkgdesc=(
   "implementation."
 )
 pkgdesc="${_pkgdesc[*]}"
-pkgver=0.0.8
-_commit="d6e838e417a708dbd82baf62e35728a86d4598ac"
-_bundle_commit="${_commit}"
+pkgver=0.0.9
+_commit="aeb8005da56dd2b643040879eea8b4b7db28b3c3"
+# 0.0.8
+_bundle_commit="d6e838e417a708dbd82baf62e35728a86d4598ac"
 pkgrel=1
 arch=(
   'any'
@@ -159,8 +160,8 @@ _sum="500e716904c56bd9d3e0930dec23eabfb59b014839ada24725d546c643da8ce5"
 _sig_sum="2e5374a4c8abc6c3b469253f5d5a792edb953105baa7f68bceaee3eb7353fa87"
 _bundle_sum="4f8cd0089a4be849eee9f1e12e94882d6ddc1991478d02adf8ddbaee25d2febd"
 _bundle_sig_sum="01da0d4ed9727e67d4be37571e847a09b5473bf7185e4e81e041b901c58f0b75"
-_npm_sum="b3d6643cd490f5d1f42ac4594425a8578536efe045bf8ae08291e47e1fd97c6b"
-_npm_sig_sum="75b85412699f1832e4139533a9dce2e1ac3614b401b3b9dccb35c7bbcbc4454b"
+_npm_sum="340f85b24993e171d3dfd79ab33d6e8f05e3bf9bcc7dd294a89ce5e33a5bc17e"
+_npm_sig_sum="7516924622c17f6b31333ceb482c70e8d29303f836f15709ce6c150baff262df"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 # Kid fren
